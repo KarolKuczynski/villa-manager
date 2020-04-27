@@ -10,10 +10,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-
 using Microsoft.EntityFrameworkCore;
 
+using MediatR;
+using FluentValidation.AspNetCore;
+
 using persistence;
+using infrastructure.guest;
 
 namespace api
 {
@@ -35,7 +38,11 @@ namespace api
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddControllers();
+            services.AddMediatR(typeof(Create.Handler).Assembly);
+
+            services
+                .AddControllers()
+                .AddFluentValidation(cfg => cfg.RegisterValidatorsFromAssemblyContaining<Create>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
