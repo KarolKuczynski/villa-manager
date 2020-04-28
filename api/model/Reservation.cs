@@ -12,12 +12,14 @@ namespace model
         public int HowManyGuests { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
+        [MaxLength(2000)]
         public string Comments { get; set; }
         [Required]
         public ReservationStatus Status { get; set; }
         [Required]
         public virtual Price Cost { get; set; }
 
+        [MaxLength(2000)]
         public string CloseComments { get; set; }
         public GuestRate CloseRate { get; set; }
     }

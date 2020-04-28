@@ -12,10 +12,10 @@ namespace persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    Phone = table.Column<string>(nullable: false)
+                    FirstName = table.Column<string>(maxLength: 100, nullable: false),
+                    LastName = table.Column<string>(maxLength: 100, nullable: false),
+                    Email = table.Column<string>(maxLength: 100, nullable: false),
+                    Phone = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Type = table.Column<string>(nullable: false),
+                    Type = table.Column<string>(maxLength: 100, nullable: false),
                     Min = table.Column<int>(nullable: false),
                     Max = table.Column<int>(nullable: false)
                 },
@@ -42,7 +42,7 @@ namespace persistence.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Number = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
                     TypeId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
@@ -66,11 +66,11 @@ namespace persistence.Migrations
                     HowManyGuests = table.Column<int>(nullable: false),
                     From = table.Column<DateTime>(nullable: false),
                     To = table.Column<DateTime>(nullable: false),
-                    Comments = table.Column<string>(nullable: true),
+                    Comments = table.Column<string>(maxLength: 2000, nullable: true),
                     Status = table.Column<int>(nullable: false),
                     Cost_Value = table.Column<decimal>(nullable: false),
                     Cost_Currency = table.Column<int>(nullable: false),
-                    CloseComments = table.Column<string>(nullable: true),
+                    CloseComments = table.Column<string>(maxLength: 2000, nullable: true),
                     CloseRate = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -9,6 +9,7 @@ namespace model
     {
         public int Number { get; set; }
         [Required]
+        [MaxLength(100)]
         public string Name { get; set; }
         [Required]
         public virtual RoomType Type { get; set; }

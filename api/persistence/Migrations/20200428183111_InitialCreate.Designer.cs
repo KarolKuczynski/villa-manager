@@ -10,7 +10,7 @@ using persistence;
 namespace persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200426192332_InitialCreate")]
+    [Migration("20200428183111_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,19 +29,23 @@ namespace persistence.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Phone")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasMaxLength(20);
 
                     b.HasKey("Id");
 
@@ -55,13 +59,15 @@ namespace persistence.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CloseComments")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)")
+                        .HasMaxLength(2000);
 
                     b.Property<int>("CloseRate")
                         .HasColumnType("int");
 
                     b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(2000)")
+                        .HasMaxLength(2000);
 
                     b.Property<DateTime>("From")
                         .HasColumnType("datetime2");
@@ -98,7 +104,8 @@ namespace persistence.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
@@ -127,7 +134,8 @@ namespace persistence.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
