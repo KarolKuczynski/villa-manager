@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 using MediatR;
 using FluentValidation.AspNetCore;
+using AutoMapper;
 
 using persistence;
 using infrastructure.guest;
@@ -39,6 +40,7 @@ namespace api
             });
 
             services.AddMediatR(typeof(Create.Handler).Assembly);
+            services.AddAutoMapper(typeof(Create.Handler));
 
             services
                 .AddControllers()

@@ -6,6 +6,7 @@ using System.Linq;
 
 using MediatR;
 using FluentValidation;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
 using persistence;
@@ -22,30 +23,22 @@ namespace infrastructure.guest
         public class Handler : IRequestHandler<Query, List<GuestDto>>
         {
             private readonly DataContext context;
+            private readonly IMapper mapper;
 
-            public Handler(DataContext context)
+            public Handler(DataContext context, IMapper mapper)
             {
                 this.context = context;
+                this.mapper = mapper;
             }
 
             public async Task<List<GuestDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var queryable = context
+                var list = await context
                     .Guest
                     .OrderBy(x => x.LastName)
-                    .AsQueryable();
-
-                return await queryable
-                    .Select(x => new GuestDto()
-                    {
-                        Id = x.Id,
-                        FirstName = x.FirstName,
-                        LastName = x.LastName,
-                        Email = x.Email,
-                        Phone = x.Phone
-                    })
                     .ToListAsync();
 
+                return mapper.Map<List<Guest>, List<GuestDto>>(list);
             }
         }
     }
