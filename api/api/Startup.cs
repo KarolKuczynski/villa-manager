@@ -39,6 +39,14 @@ namespace api
                 x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddCors(x =>
+            {
+                x.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithExposedHeaders("WWW-Authenticate").WithOrigins("http://localhost:3000").AllowCredentials();
+                });
+            });
+
             services.AddMediatR(typeof(Create.Handler).Assembly);
             services.AddAutoMapper(typeof(Create.Handler));
 
