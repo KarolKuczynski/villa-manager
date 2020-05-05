@@ -1,3 +1,13 @@
 .container {
   display: flex;
+  align-items: stretch;
+}
+
+.menu {
+  width: 15%;
+  min-width: 200px;
+
+  ul {
+    list-style: none;
+  }
 }
