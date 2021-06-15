@@ -12,6 +12,7 @@ import { RoomEditComponent } from './rooms/room-edit/room-edit.component';
 import { HomeComponent } from './home/home.component';
 
 import { GuestService } from './_services/guest.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GuestService } from './_services/guest.service';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [GuestService],
   bootstrap: [AppComponent],
