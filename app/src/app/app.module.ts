@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { GuestService } from './_services/guest.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+
+   
+    
   ],
   providers: [GuestService],
   bootstrap: [AppComponent],
