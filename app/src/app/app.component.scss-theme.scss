@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+
+  $primary-palette: map.get($color-config, 'primary');
+
+  .main-container {
+    background-color: mat.get-color-from-palette($primary-palette, 'darker');
+
+    .panel {
+      background-color: mat.get-color-from-palette($primary-palette);
+    }
+  }
+}

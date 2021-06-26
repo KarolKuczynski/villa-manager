@@ -6,7 +6,7 @@
 
   $primary-palette: map.get($color-config, 'primary');
 
-  .main-container {
-    background-color: mat.get-color-from-palette($primary-palette, 300);
+  .menu {
+    background-color: mat.get-color-from-palette($primary-palette, 'lighter');
   }
 }
