@@ -10,7 +10,11 @@
     background-color: mat.get-color-from-palette($primary-palette, 'darker');
 
     .panel {
-      background-color: mat.get-color-from-palette($primary-palette);
+      background-color: mat.get-color-from-palette($primary-palette, 'lighter');
+
+      .content {
+        background-color: mat.get-color-from-palette($primary-palette);
+      }
     }
   }
 }

@@ -4,8 +4,6 @@
 @use '~@angular/material' as mat;
 // Plus imports for other components in your app.
 @use '../src/app/app.component.scss-theme' as app;
-@use '../src/app/header/header.component.scss-theme' as header;
-@use '../src/app/menu/menu.component.scss-theme' as menu;
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -104,8 +102,6 @@ $app-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 @include app.color($app-theme);
-@include header.color($app-theme);
-@include menu.color($app-theme);
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; box-sizing: border-box; }
