@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { HeaderSearchComponent } from './header-search/header-search.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, HeaderSearchComponent],
   imports: [
     SharedModule
   ],
